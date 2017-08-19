@@ -33,7 +33,7 @@ public class RestService {
 
     @GetMapping(value = "/statistics", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity getStatistics() throws Exception {
+    public ResponseEntity<Output> getStatistics() throws Exception {
         Future<Output> restOutput = repoService.get();
         return new ResponseEntity(restOutput.get(), HttpStatus.OK);
     }

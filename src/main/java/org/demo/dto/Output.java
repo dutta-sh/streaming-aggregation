@@ -10,11 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Output implements Cloneable {
-    private Double sum;
-    private Double avg;
-    private Double max;
-    private Double min;
-    private Integer cnt;
+    private Double sum = 0D;
+    private Double avg = 0D;
+    private Double max = 0D;
+    private Double min = 0D;
+    private Integer cnt = 0;
 
     public Output clone() {
         return Output.builder().sum(sum).avg(avg).max(max).min(min).cnt(cnt).build();

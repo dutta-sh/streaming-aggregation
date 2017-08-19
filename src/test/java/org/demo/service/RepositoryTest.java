@@ -66,6 +66,7 @@ public class RepositoryTest {
         assertEquals(new Double(1500), out.getAvg());
         assertEquals(new Double(3000), out.getSum());
 
+        log.info("Sleeping for 5 secs");
         Thread.sleep(5000);
         repo.insert(Input.builder().amount(3000D).tsp(new Date().getTime()).build());
         repo.insert(Input.builder().amount(4000D).tsp(new Date().getTime()).build());
@@ -77,6 +78,7 @@ public class RepositoryTest {
         assertEquals(new Double(2500), out.getAvg());
         assertEquals(new Double(10000), out.getSum());
 
+        log.info("Sleeping for 57 secs");
         Thread.sleep(57000);
         out = repo.compute();
         log.info(out);
@@ -86,6 +88,7 @@ public class RepositoryTest {
         assertEquals(new Double(3500), out.getAvg());
         assertEquals(new Double(7000), out.getSum());
 
+        log.info("Sleeping for 4 secs");
         Thread.sleep(4000);
         out = repo.compute();
         log.info(out);

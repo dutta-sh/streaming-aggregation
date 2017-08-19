@@ -71,6 +71,7 @@ public class RepoServiceTest {
         assertEquals(new Double(0), output.getMin());
         assertEquals(new Double(177000), output.getSum());
 
+        log.info("Sleeping for 10 secs");
         Thread.sleep(10000);
         output = repoService.get().get();
         assertEquals(new Integer(50), output.getCnt());

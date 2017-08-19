@@ -2,6 +2,7 @@ package org.demo.service;
 
 import lombok.extern.log4j.Log4j2;
 import org.demo.dto.Input;
+import org.demo.dto.Output;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -23,7 +25,6 @@ import static org.junit.Assert.assertEquals;
 public class RestServiceTest {
     @Autowired
     private RestService restService;
-
     @Autowired
     private Repository repo;
 
@@ -58,11 +59,25 @@ public class RestServiceTest {
 
     @Test
     public void getStatisticsTest() throws Exception {
-        for(int i = 0; i < 10; i++) {
-            log.info(i);
+        for(int i = 0; i < 100; i ++) {
+            Input input = Input.builder().amount(i * 100D).tsp(new Date().getTime() - i*1000).build();
+            repo.insert(input);
+        }
+
+        ResponseEntity<Output> prev = null;
+        ResponseEntity<Output> now = null;
+        for(int i = 0; i < 70; i++) {
+            log.info("Sleeping for " + (i*10/1000) + " secs");
             Thread.sleep(i * 10);
-            ResponseEntity resp = restService.getStatistics();
-            log.info(resp);
+            prev = now;
+            now = restService.getStatistics();
+            if(prev != null) {
+                assertTrue(now.getBody().getCnt() <= prev.getBody().getCnt());
+                assertTrue(now.getBody().getAvg() <= prev.getBody().getAvg());
+                assertTrue(now.getBody().getSum() <= prev.getBody().getSum());
+                assertTrue(now.getBody().getMax() <= prev.getBody().getMax());
+                assertTrue(now.getBody().getCnt() <= prev.getBody().getCnt());
+            }
         }
     }
 }
