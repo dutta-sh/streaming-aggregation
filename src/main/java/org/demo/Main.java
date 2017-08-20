@@ -11,6 +11,10 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ConcurrentTaskScheduler;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+//initializes as a web application
+//HTTP call listening on
+//inbuilt tomcat port 8080
+
 @SpringBootApplication
 @Configuration
 @EnableAsync

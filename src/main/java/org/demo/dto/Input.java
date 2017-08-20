@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//domain object to input thru
+//REST call
+
 @Builder
 @Data
 @AllArgsConstructor

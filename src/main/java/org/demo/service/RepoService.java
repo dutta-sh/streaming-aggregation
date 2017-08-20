@@ -12,6 +12,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.concurrent.Future;
 
+//provides service to access repository
+//to persist data and compute statistics
+//each call is spawned in a separate thread
+//of work. However they all work on the same
+//respository object, which is thread-safe
+
 @Service
 @Log4j2
 @EnableScheduling
@@ -20,6 +26,8 @@ public class RepoService {
     @Autowired
     private Repository repo;
 
+    //separate thread for persisting transaction information
+    //in memory
     @Async
     public Future<Boolean> add(Input input) {
         if(input == null || input.getTsp() == null || input.getTsp() < 0 || input.getAmount() == null) {
@@ -34,6 +42,8 @@ public class RepoService {
         }
     }
 
+    //separate thread using spring Async to compute and get
+    //stats for the request
     @Async
     public Future<Output> get() {
         Output output = repo.compute();
@@ -41,6 +51,9 @@ public class RepoService {
         return new AsyncResult<>(output);
     }
 
+    //use spring scheduler to update the repo array by
+    //discarding oldest element and creating newest empty element
+    //once every second
     @Scheduled(cron="* * * ? * *")
     public void update() {
         log.debug("Right Shifting repo data");

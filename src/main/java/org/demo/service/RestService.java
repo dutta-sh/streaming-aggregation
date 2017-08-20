@@ -1,6 +1,5 @@
 package org.demo.service;
 
-import lombok.extern.log4j.Log4j2;
 import org.demo.dto.Input;
 import org.demo.dto.Output;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.Future;
 
-@Log4j2
+//exposes RESTful webservices to
+//persist data and
+//compute statistics
+//also a healthcheck method at the root context
+//to ensure the webservice is running
+
 @RestController
 @RequestMapping
 public class RestService {
