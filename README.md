@@ -14,6 +14,7 @@
 12. The workspace in github contains the source code and the jar
 13. The code has been written using Intellij IDEA
 14. REST calls have been tested using Chrome browser (GET) and Postman (GET and POST)
+15. Since java.util.Date converts long tsp to show as Date with timezone on client systems, as long as we are using the raw long tsp to compute, it doesn't matter whatever timezone the system is on.
 
 To ensure the webservice is running, a healthcheck on the context root can be done as:
 http://localhost:8080/
