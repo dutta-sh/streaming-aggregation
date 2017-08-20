@@ -67,7 +67,7 @@ public class RestServiceTest {
         ResponseEntity<Output> prev = null;
         ResponseEntity<Output> now = null;
         for(int i = 0; i < 70; i++) {
-            log.info("Sleeping for " + (i*10/1000) + " secs");
+            log.info("Sleeping for " + i*10 + " millisecs");
             Thread.sleep(i * 10);
             prev = now;
             now = restService.getStatistics();
