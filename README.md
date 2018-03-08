@@ -1,4 +1,4 @@
-# n26-coding-challenge
+# streaming-aggregation
 
 1. The code needs Java 8 to compile and run.
 2. It is built using spring boot and uses a bundled tomcat server running on port 8080.

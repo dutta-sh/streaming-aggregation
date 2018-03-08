@@ -1,2 +1,2 @@
-java -jar n26-coding-challenge.jar
+java -jar streaming-aggregation.jar
 pause

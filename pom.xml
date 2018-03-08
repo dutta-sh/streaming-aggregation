@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.demo</groupId>
-    <artifactId>n26-coding-challenge</artifactId>
+    <artifactId>streaming-aggregation</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>N26 Challenge</name>
+    <name>streaming-aggregation</name>
     <packaging>jar</packaging>
 
     <parent>
@@ -56,7 +56,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <finalName>n26-coding-challenge</finalName>
+                    <finalName>streaming-aggregation</finalName>
                 </configuration>
             </plugin>
         </plugins>
