@@ -9,8 +9,8 @@
 7. The service method returning the statistics at any point in time, returns a clone of the actual data, so any modification done by the caller is failsafe.
 8. The project can be built using mvn clean package.
 9. The build generates a single uber jar which contains all dependencies.
-10. The jar is built in the target folder by the name: n26-coding-challenge.jar
-11. The jar can be executed using: java -jar n26-coding-challenge.jar
+10. The jar is built in the target folder by the name: streaming-aggregation.jar
+11. The jar can be executed using: java -jar streaming-aggregation.jar
 12. The workspace in github contains the source code and the jar
 13. The code has been written using Intellij IDEA
 14. REST calls have been tested using Chrome browser (GET) and Postman (GET and POST)
